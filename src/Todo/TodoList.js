@@ -10,11 +10,15 @@ const styles = {
 export default function ({items}) {
     return (
         <ul style={styles.ul}>
-            {items.map(item => <TodoItem title={item.title}
-                                         id={item.id}
-                                         completed={item.completed}
-                                         key={item.id}
-            />)}
+            {
+                items.length
+                ? items.map(item => <TodoItem title={item.title}
+                                             id={item.id}
+                                             completed={item.completed}
+                                             key={item.id}
+                />)
+                : "no items"
+            }
         </ul>
     );
 }
