@@ -19,10 +19,10 @@ function App() {
         updateTodos(Todos.filter(todo => todo.id !== id));
     }
 
-    return <Context.Provider value={{removeTodo}}>
+    return <Context.Provider value={{toggleTodo, removeTodo}}>
         <div className="wrapper">
             <h1>React demo</h1>
-            <TodoList items={Todos} toggle={toggleTodo}/>
+            <TodoList items={Todos}/>
         </div>;
     </Context.Provider>
 }

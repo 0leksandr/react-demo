@@ -7,13 +7,12 @@ const styles = {
     },
 };
 
-export default function ({items, toggle}) {
+export default function ({items}) {
     return (
         <ul style={styles.ul}>
             {items.map(item => <TodoItem title={item.title}
                                          id={item.id}
                                          completed={item.completed}
-                                         toggle={toggle}
                                          key={item.id}
             />)}
         </ul>

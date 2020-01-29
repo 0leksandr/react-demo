@@ -1,11 +1,11 @@
 import React, {useContext} from "react";
 import Context from "../context";
 
-export default function ({title, id, completed, toggle}) {
-    const {removeTodo} = useContext(Context);
+export default function ({title, id, completed}) {
+    const {toggleTodo, removeTodo} = useContext(Context);
 
     return <li style={{fontStyle: "italic"}}>
-        <input type="checkbox" checked={completed} onChange={() => toggle(id)}/>
+        <input type="checkbox" checked={completed} onChange={() => toggleTodo(id)}/>
         <span className={completed ? "done": ""}>
             {title}
         </span>
