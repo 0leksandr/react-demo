@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from "./Todo/TodoList";
+import Context from "./context";
 
 function App() {
     const [Todos, updateTodos] = React.useState([
@@ -8,17 +9,22 @@ function App() {
         {id: 3, title: "Title 3", completed: false},
     ]);
 
-    function toggle(todoId) {
+    function toggleTodo(id) {
         updateTodos(Todos.map(todo => {
-            if (todo.id === todoId) todo.completed = !todo.completed;
+            if (todo.id === id) todo.completed = !todo.completed;
             return todo;
         }));
     }
+    function removeTodo(id) {
+        updateTodos(Todos.filter(todo => todo.id !== id));
+    }
 
-    return <div className="wrapper">
-        <h1>React demo</h1>
-        <TodoList items={Todos} toggle={toggle}/>
-    </div>;
+    return <Context.Provider value={{removeTodo}}>
+        <div className="wrapper">
+            <h1>React demo</h1>
+            <TodoList items={Todos} toggle={toggleTodo}/>
+        </div>;
+    </Context.Provider>
 }
 
 export default App;
