@@ -9,11 +9,9 @@ function App() {
     useEffect(
         () => {
             fetch('https://jsonplaceholder.typicode.com/todos/?_limit=5')
+                .then(response => new Promise(resolve => setTimeout(() => resolve(response), 3000)))
                 .then(response => response.json())
-                .then(json => {
-                    console.log(json);
-                    updateTodos(json);
-                });
+                .then(json => updateTodos(json));
         },
         []
     );
