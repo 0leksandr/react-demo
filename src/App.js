@@ -4,11 +4,7 @@ import TodoList from "./Todo/TodoList";
 import AddTodo from "./Todo/AddTodo";
 
 function App() {
-    const [Todos, updateTodos] = React.useState([
-        {id: 1, title: "Title 1", completed: false},
-        {id: 2, title: "Title 2", completed: true},
-        {id: 3, title: "Title 3", completed: false},
-    ]);
+    const [Todos, updateTodos] = React.useState([]);
 
     useEffect(
         () => {
